@@ -15,7 +15,8 @@ Step 5: Install the influxdb-client module which is a python library for playing
 
 ```pip3 install influxdb-client
 pip3 install adafruit-circuitpython-dht
-sudo apt-get install libgpiod2```
+sudo apt-get install libgpiod2
+```
 
 Step 6: InfluxDB Cloud uses Tokens to authenticate API access.
 
@@ -31,7 +32,8 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 token = os.environ.get("INFLUXDB_TOKEN")
 org = "abc@gmail.com"
 url = "https://us-east-1-1.aws.cloud2.influxdata.com"
-client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)```
+client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
+```
 
 Step 8 : Write the data on the InfluxDB Cloud
 
@@ -49,7 +51,8 @@ for value in range(5):
     .field("field1", value)
   )
   write_api.write(bucket=bucket, org="abc@gmail.com", record=point)
-  time.sleep(1) # separate points by 1 second```
+  time.sleep(1) # separate points by 1 second
+```
 Note : We can change the code by adding the DHT Sensor code embedded inside this
 
 Step 9 : Connect DHT11 sensor to Raspberry Pi
@@ -61,7 +64,8 @@ while True:
         h=s.humidity
         t = s.temperature
         print(f"Humidity: {h}% and Temperature {t} C")
-        time.sleep(5)```
+        time.sleep(5)
+```
         
 Step 10: Visualization using a Dashboard
 
